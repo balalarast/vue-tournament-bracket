@@ -7,8 +7,8 @@
                 @onSelectedPlayer="highlightPlayer"
                 @onDeselectedPlayer="unhighlightPlayer"
             >
-                <template #player="{ player }">
-                    <slot name="player" :player="player" />
+                <template #player="{ player, node }">
+                    <slot name="player" :player="player" :node="node" />
                 </template>
                 <template #player-extension-bottom="{ match }">
                     <slot name="player-extension-bottom" :match="match" />
@@ -24,8 +24,8 @@
                     @onSelectedPlayer="highlightPlayer"
                     @onDeselectedPlayer="unhighlightPlayer"
                 >
-                    <template #player="{ player }">
-                        <slot name="player" :player="player" />
+                    <template #player="{ player, node }">
+                        <slot name="player" :player="player" :node="node" />
                     </template>
                     <template #player-extension-bottom="{ match }">
                         <slot name="player-extension-bottom" :match="match" />
@@ -39,8 +39,8 @@
                     @onSelectedPlayer="highlightPlayer"
                     @onDeselectedPlayer="unhighlightPlayer"
                 >
-                    <template #player="{ player }">
-                        <slot name="player" :player="player" />
+                    <template #player="{ player, node }">
+                        <slot name="player" :player="player" :node="node" />
                     </template>
                     <template #player-extension-bottom="{ match }">
                         <slot name="player-extension-bottom" :match="match" />
