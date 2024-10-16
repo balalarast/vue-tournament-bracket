@@ -7,7 +7,7 @@
                 @mouseover="highlightPlayer(bracketNode.player1.id)"
                 @mouseleave="unhighlightPlayer"
             >
-                <slot :player="bracketNode.player1" :node="getNode()" name="player" />
+                <slot :player="bracketNode.player1" :round="getRound()" name="player" />
             </div>
 
             <div
@@ -16,7 +16,7 @@
                 @mouseover="highlightPlayer(bracketNode.player2.id)"
                 @mouseleave="unhighlightPlayer"
             >
-                <slot :player="bracketNode.player2" :node="getNode()" name="player" />
+                <slot :player="bracketNode.player2" :round="getRound()" name="player" />
             </div>
         </div>
         <slot name="player-extension-bottom" :match="matchProperties" />
@@ -57,7 +57,7 @@
             unhighlightPlayer() {
                 this.$emit("onDeselectedPlayer");
             },
-            getNode() {
+            getRound() {
                 const node = Object.assign({}, this.bracketNode)
                 if ("player1" in node) {
                     delete node.player1;

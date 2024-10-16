@@ -1,7 +1,7 @@
 <template>
     <bracket :rounds="rounds">
-        <template #player="{ player, node }">
-            {{ player.name }} - Round {{ node.round }}
+        <template #player="{ player, round }">
+            {{ player.name }} - Round {{ round.number }}
         </template>
     </bracket>
 </template>
