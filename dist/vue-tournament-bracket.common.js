@@ -252,9 +252,10 @@ module.exports = {
     var _loop = function _loop(i) {
       currentRound = rounds[i].games.map(function (game) {
         return _objectSpread(_objectSpread({}, game), {}, {
-          title: "round " + i,
+          title: "round " + (i + 1),
           games: [],
-          hasParent: !!rounds[i + 1]
+          hasParent: !!rounds[i + 1],
+          number: i + 1
         });
       });
       if (previousRound.length === 0) {
@@ -288,7 +289,8 @@ module.exports = {
     var tree = _objectSpread(_objectSpread({}, root), {}, {
       title: "round",
       games: [],
-      hasParent: false
+      hasParent: false,
+      number: 0
     });
     return constructTree(tree, mapOfGamesPerParent, Object.keys(mapOfGamesPerParent).length);
   }
@@ -301,7 +303,8 @@ function constructTree(tree, mapOfChildren, processedRound) {
     var treeChild = _objectSpread(_objectSpread({}, childGame), {}, {
       title: "round ".concat([processedRound + 1]),
       hasParent: true,
-      games: []
+      games: [],
+      number: processedRound + 1
     });
     constructTree(treeChild, mapOfChildren, processedRound - 1);
     tree.games.push(treeChild);
