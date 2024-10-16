@@ -255,7 +255,7 @@ module.exports = {
           title: "round " + (i + 1),
           games: [],
           hasParent: !!rounds[i + 1],
-          number: i + 1
+          round: i + 1
         });
       });
       if (previousRound.length === 0) {
@@ -290,7 +290,7 @@ module.exports = {
       title: "round",
       games: [],
       hasParent: false,
-      number: 0
+      round: 0
     });
     return constructTree(tree, mapOfGamesPerParent, Object.keys(mapOfGamesPerParent).length);
   }
@@ -304,7 +304,7 @@ function constructTree(tree, mapOfChildren, processedRound) {
       title: "round ".concat([processedRound + 1]),
       hasParent: true,
       games: [],
-      number: processedRound + 1
+      round: processedRound + 1
     });
     constructTree(treeChild, mapOfChildren, processedRound - 1);
     tree.games.push(treeChild);
@@ -5782,13 +5782,13 @@ function BracketNodevue_type_template_id_d2264baa_render(_ctx, _cache, $props, $
 }
 ;// ./src/components/BracketNode.vue?vue&type=template&id=d2264baa
 
-;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/GamePlayers.vue?vue&type=template&id=aea8f632
+;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/GamePlayers.vue?vue&type=template&id=2cd974dd
 
-var GamePlayersvue_type_template_id_aea8f632_hoisted_1 = {
+var GamePlayersvue_type_template_id_2cd974dd_hoisted_1 = {
   class: "vtb-item-players"
 };
-function GamePlayersvue_type_template_id_aea8f632_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", GamePlayersvue_type_template_id_aea8f632_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", null, [!!$props.bracketNode.player1 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", {
+function GamePlayersvue_type_template_id_2cd974dd_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", GamePlayersvue_type_template_id_2cd974dd_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementVNode)("div", null, [!!$props.bracketNode.player1 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.createElementBlock)("div", {
     key: 0,
     class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_namespaceObject.normalizeClass)(['vtb-player', 'vtb-player1', $options.getPlayerClass($props.bracketNode.player1)]),
     onMouseover: _cache[0] || (_cache[0] = function ($event) {
@@ -5814,7 +5814,7 @@ function GamePlayersvue_type_template_id_aea8f632_render(_ctx, _cache, $props, $
     match: $options.matchProperties
   })]);
 }
-;// ./src/components/GamePlayers.vue?vue&type=template&id=aea8f632
+;// ./src/components/GamePlayers.vue?vue&type=template&id=2cd974dd
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.assign.js
 var es_object_assign = __webpack_require__(9085);
@@ -5835,6 +5835,9 @@ var es_object_assign = __webpack_require__(9085);
     getPlayerClass: function getPlayerClass(player) {
       if (!player) {
         return "";
+      }
+      if (player instanceof Object) {
+        player.round = this.bracketNode.round;
       }
       if (player.winner === null || player.winner === undefined) {
         return "";
@@ -5863,7 +5866,7 @@ var exportHelper = __webpack_require__(6262);
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(GamePlayersvue_type_script_lang_js, [['render',GamePlayersvue_type_template_id_aea8f632_render]])
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(GamePlayersvue_type_script_lang_js, [['render',GamePlayersvue_type_template_id_2cd974dd_render]])
 
 /* harmony default export */ var GamePlayers = (__exports__);
 ;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/BracketNode.vue?vue&type=script&lang=js
