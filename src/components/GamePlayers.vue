@@ -37,9 +37,15 @@
                 if(!player) {
                     return ""
                 }
+
+                if(player instanceof Object) {
+                    player.round = this.bracketNode.round
+                }
+
                 if (player.winner === null || player.winner === undefined) {
                     return "";
                 }
+
 
                 let clazz = player.winner ? "winner" : "defeated";
 

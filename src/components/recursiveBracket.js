@@ -16,7 +16,7 @@ module.exports = {
                     title: "round " + (i + 1),
                     games: [],
                     hasParent: !!rounds[i + 1],
-                    number: i + 1,
+                    round: i + 1,
                 };
             });
 
@@ -57,7 +57,7 @@ module.exports = {
             title: "round",
             games: [],
             hasParent: false,
-            number: 0,
+            round: 0,
         };
 
         return constructTree(tree, mapOfGamesPerParent, Object.keys(mapOfGamesPerParent).length);
@@ -77,7 +77,7 @@ function constructTree(tree, mapOfChildren, processedRound) {
             title: `round ${[processedRound + 1]}`,
             hasParent: true,
             games: [],
-            number: processedRound + 1,
+            round: processedRound + 1,
         };
 
         constructTree(treeChild, mapOfChildren, processedRound - 1);
