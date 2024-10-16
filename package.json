@@ -5,6 +5,9 @@
   "repository": "https://github.com/kamilwylegala/vue-tournament-bracket",
   "author": "Kamil Wylegała <kamil.wylegala@gmail.com>",
   "description": "Vue component for rendering single elemination tournament brackets.",
+  "files": [
+    "dist/*"
+  ],
   "main": "dist/vue-tournament-bracket.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -40,5 +43,10 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "vue",
+    "tournament brackets",
+    "tournament"
   ]
 }
