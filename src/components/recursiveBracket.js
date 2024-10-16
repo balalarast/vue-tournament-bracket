@@ -72,7 +72,7 @@ function constructTree(tree, mapOfChildren, processedRound) {
 
         const treeChild = {
             ...childGame,
-            title: `round ${[processedRound]}`,
+            title: `round ${[processedRound + 1]}`,
             hasParent: true,
             games: [],
         };

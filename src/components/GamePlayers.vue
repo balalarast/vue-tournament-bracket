@@ -2,6 +2,7 @@
     <div class="vtb-item-players">
         <div>
             <div
+                v-if="!!bracketNode.player1"
                 :class="['vtb-player', 'vtb-player1', getPlayerClass(bracketNode.player1)]"
                 @mouseover="highlightPlayer(bracketNode.player1.id)"
                 @mouseleave="unhighlightPlayer"
@@ -10,6 +11,7 @@
             </div>
 
             <div
+                v-if="!!bracketNode.player2"
                 :class="['vtb-player', 'vtb-player2', getPlayerClass(bracketNode.player2)]"
                 @mouseover="highlightPlayer(bracketNode.player2.id)"
                 @mouseleave="unhighlightPlayer"
@@ -32,6 +34,9 @@
         },
         methods: {
             getPlayerClass(player) {
+                if(!player) {
+                    return ""
+                }
                 if (player.winner === null || player.winner === undefined) {
                     return "";
                 }

@@ -60,7 +60,7 @@
         props: ["bracketNode", "highlightedPlayerId"],
         computed: {
             playersArePresent() {
-                return this.bracketNode.player1 && this.bracketNode.player1;
+                return this.bracketNode.player1 || this.bracketNode.player2;
             },
         },
         methods: {
