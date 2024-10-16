@@ -2,21 +2,21 @@
     <div class="vtb-item-players">
         <div>
             <div
-                v-if="!!bracketNode.player1"
-                :class="['vtb-player', 'vtb-player1', getPlayerClass(bracketNode.player1)]"
-                @mouseover="highlightPlayer(bracketNode.player1.id)"
+                v-if="!!bracketNodeEntity.player1"
+                :class="['vtb-player', 'vtb-player1', getPlayerClass(bracketNodeEntity.player1)]"
+                @mouseover="highlightPlayer(bracketNodeEntity.player1.id)"
                 @mouseleave="unhighlightPlayer"
             >
-                <slot :player="bracketNode.player1" name="player" />
+                <slot :player="bracketNodeEntity.player1" name="player" />
             </div>
 
             <div
-                v-if="!!bracketNode.player2"
-                :class="['vtb-player', 'vtb-player2', getPlayerClass(bracketNode.player2)]"
-                @mouseover="highlightPlayer(bracketNode.player2.id)"
+                v-if="!!bracketNodeEntity.player2"
+                :class="['vtb-player', 'vtb-player2', getPlayerClass(bracketNodeEntity.player2)]"
+                @mouseover="highlightPlayer(bracketNodeEntity.player2.id)"
                 @mouseleave="unhighlightPlayer"
             >
-                <slot :player="bracketNode.player2" name="player" />
+                <slot :player="bracketNodeEntity.player2" name="player" />
             </div>
         </div>
         <slot name="player-extension-bottom" :match="matchProperties" />
@@ -27,19 +27,28 @@
     export default {
         name: "game-players",
         props: ["bracketNode", "highlightedPlayerId"],
+        data() {
+            const bracketNode = Object.assign({}, this.bracketNode)
+            if(bracketNode?.player1 instanceof Object) {
+                bracketNode.player1.round = this.bracketNode.round
+            }
+            if(bracketNode?.player2 instanceof Object) {
+                bracketNode.player2.round = this.bracketNode.round
+            }
+
+            return {
+                bracketNodeEntity: bracketNode,
+            };
+        },
         computed: {
             matchProperties() {
-                return Object.assign({}, this.bracketNode, { games: undefined, hasParent: undefined });
+                return Object.assign({}, this.bracketNodeEntity, { games: undefined, hasParent: undefined });
             }
         },
         methods: {
             getPlayerClass(player) {
                 if(!player) {
                     return ""
-                }
-
-                if(player instanceof Object) {
-                    player.round = this.bracketNode.round
                 }
 
                 if (player.winner === null || player.winner === undefined) {

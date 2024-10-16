@@ -5800,39 +5800,39 @@ function BracketNodevue_type_template_id_d2264baa_render(_ctx, _cache, $props, $
 }
 ;// ./src/components/BracketNode.vue?vue&type=template&id=d2264baa
 
-;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/GamePlayers.vue?vue&type=template&id=2cd974dd
+;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/GamePlayers.vue?vue&type=template&id=a37e820c
 
-var GamePlayersvue_type_template_id_2cd974dd_hoisted_1 = {
+var GamePlayersvue_type_template_id_a37e820c_hoisted_1 = {
   class: "vtb-item-players"
 };
-function GamePlayersvue_type_template_id_2cd974dd_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", GamePlayersvue_type_template_id_2cd974dd_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("div", null, [!!$props.bracketNode.player1 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", {
+function GamePlayersvue_type_template_id_a37e820c_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", GamePlayersvue_type_template_id_a37e820c_hoisted_1, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("div", null, [!!$data.bracketNodeEntity.player1 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", {
     key: 0,
-    class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)(['vtb-player', 'vtb-player1', $options.getPlayerClass($props.bracketNode.player1)]),
+    class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)(['vtb-player', 'vtb-player1', $options.getPlayerClass($data.bracketNodeEntity.player1)]),
     onMouseover: _cache[0] || (_cache[0] = function ($event) {
-      return $options.highlightPlayer($props.bracketNode.player1.id);
+      return $options.highlightPlayer($data.bracketNodeEntity.player1.id);
     }),
     onMouseleave: _cache[1] || (_cache[1] = function () {
       return $options.unhighlightPlayer && $options.unhighlightPlayer.apply($options, arguments);
     })
   }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderSlot)(_ctx.$slots, "player", {
-    player: $props.bracketNode.player1
-  })], 34)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true), !!$props.bracketNode.player2 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", {
+    player: $data.bracketNodeEntity.player1
+  })], 34)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true), !!$data.bracketNodeEntity.player2 ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", {
     key: 1,
-    class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)(['vtb-player', 'vtb-player2', $options.getPlayerClass($props.bracketNode.player2)]),
+    class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)(['vtb-player', 'vtb-player2', $options.getPlayerClass($data.bracketNodeEntity.player2)]),
     onMouseover: _cache[2] || (_cache[2] = function ($event) {
-      return $options.highlightPlayer($props.bracketNode.player2.id);
+      return $options.highlightPlayer($data.bracketNodeEntity.player2.id);
     }),
     onMouseleave: _cache[3] || (_cache[3] = function () {
       return $options.unhighlightPlayer && $options.unhighlightPlayer.apply($options, arguments);
     })
   }, [(0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderSlot)(_ctx.$slots, "player", {
-    player: $props.bracketNode.player2
+    player: $data.bracketNodeEntity.player2
   })], 34)) : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true)]), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.renderSlot)(_ctx.$slots, "player-extension-bottom", {
     match: $options.matchProperties
   })]);
 }
-;// ./src/components/GamePlayers.vue?vue&type=template&id=2cd974dd
+;// ./src/components/GamePlayers.vue?vue&type=template&id=a37e820c
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.assign.js
 var es_object_assign = __webpack_require__(9085);
@@ -5841,9 +5841,21 @@ var es_object_assign = __webpack_require__(9085);
 /* harmony default export */ var GamePlayersvue_type_script_lang_js = ({
   name: "game-players",
   props: ["bracketNode", "highlightedPlayerId"],
+  data: function data() {
+    var bracketNode = Object.assign({}, this.bracketNode);
+    if ((bracketNode === null || bracketNode === void 0 ? void 0 : bracketNode.player1) instanceof Object) {
+      bracketNode.player1.round = this.bracketNode.round;
+    }
+    if ((bracketNode === null || bracketNode === void 0 ? void 0 : bracketNode.player2) instanceof Object) {
+      bracketNode.player2.round = this.bracketNode.round;
+    }
+    return {
+      bracketNodeEntity: bracketNode
+    };
+  },
   computed: {
     matchProperties: function matchProperties() {
-      return Object.assign({}, this.bracketNode, {
+      return Object.assign({}, this.bracketNodeEntity, {
         games: undefined,
         hasParent: undefined
       });
@@ -5853,9 +5865,6 @@ var es_object_assign = __webpack_require__(9085);
     getPlayerClass: function getPlayerClass(player) {
       if (!player) {
         return "";
-      }
-      if (player instanceof Object) {
-        player.round = this.bracketNode.round;
       }
       if (player.winner === null || player.winner === undefined) {
         return "";
@@ -5884,7 +5893,7 @@ var exportHelper = __webpack_require__(6262);
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(GamePlayersvue_type_script_lang_js, [['render',GamePlayersvue_type_template_id_2cd974dd_render]])
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.A)(GamePlayersvue_type_script_lang_js, [['render',GamePlayersvue_type_template_id_a37e820c_render]])
 
 /* harmony default export */ var GamePlayers = (__exports__);
 ;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-82.use[1]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/components/BracketNode.vue?vue&type=script&lang=js
